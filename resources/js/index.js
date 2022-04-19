@@ -530,7 +530,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
                                     
                                     <hr>
 
-                                    <h5 class="text-dark mb-0">History</h5>
+                                    <center> <h5 class="text-dark mb-0">History</h5> </center>
+                                    <br>
 
                                     <table class="table">
                                         <thead>
@@ -544,21 +545,21 @@ document.addEventListener("DOMContentLoaded", function (event) {
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <th scope="row">04/19/2022</th>
+                                                <td>04/19/2022</th>
                                                 <td>Available</td>
                                                 <td>Closet</td>
                                                 <td class="text-muted">N/A</td>
                                                 <td class="text-muted">None</td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">04/18/2022</th>
+                                                <td>04/18/2022</th>
                                                 <td>Lent</td>
                                                 <td>Room 422</td>
                                                 <td>John Smith</td>
                                                 <td class="text-muted">None</td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">01/02/2022</th>
+                                                <td>01/02/2022</th>
                                                 <td>Available</td>
                                                 <td>Closet</td>
                                                 <td class="text-muted">N/A</td>

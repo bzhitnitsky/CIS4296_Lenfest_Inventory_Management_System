@@ -84,7 +84,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
         $('#lentTable').hide()
         $('#pendingTable').hide()
         $('#unavailableTable').hide()
-
+        document.getElementsByName("availablePage").dataTable( {
+            "pageLength": 10
+        } );
         $('.inventory-table-row tbody').empty()
 
         $.ajax({
@@ -130,13 +132,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
     });
 
     $('#pendingTab').click(function () {
-        $('#availableTable').hide()
-        $('#totalTable').hide()
-        $('#lentTable').hide()
-        $('#pendingTable').show()
-        $('#unavailableTable').hide()
-
-        $('.inventory-table-row tbody').empty()
+        $('#availableTable').hide();
+        $('#totalTable').hide();
+        $('#lentTable').hide();
+        $('#pendingTable').show();
+        $('#unavailableTable').hide();
+        document.getElementsByName("pendingPage").dataTable( {
+            "pageLength": 10
+        } );
+        $('.inventory-table-row tbody').empty();
 
         $.ajax({
             method: "GET",
@@ -292,7 +296,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         $('#unavailableTable').show();
 
         $('.inventory-table-row tbody').empty();
-
+        $('#testTable_length').hide();
 
         $.ajax({
             method: "GET",

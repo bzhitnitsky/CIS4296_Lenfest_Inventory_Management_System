@@ -113,6 +113,9 @@ function showTab(id){
                             <td class="text-center">
                                 <div class="btn-group" role="group">
                                     <button type="button" data-tippy-content="Return Item" onclick="confirmDelete('Return Item to Available?','Item Now Available!');" class="btn btn-sm btn-outline-secondary border"><i class="fa-solid fa-arrow-right-to-arc fa-rotate-180 fa-fw"></i></button>
+                                    <button type="button" data-tippy-content="Mark as Picked Up" onclick="confirmDelete('Mark as Picked Up?','Item Picked Up!');" class="btn btn-sm btn-outline-secondary border"><i class="fa-solid fa-hand-holding-box"></i></button>
+
+                                    
                                     <button type="button" data-tippy-content="More Details" data-bs-toggle="modal" data-modal-type="Info" data-bs-target="#exampleModal" class="btn btn-sm btn-outline-secondary border"><i class="fa-solid fa-info fa-fw"></i></button>
                                 </div>                              
                             </td>

@@ -1,62 +1,16 @@
 document.addEventListener("DOMContentLoaded", function (event) {
-
+    $('#totalTable').show()
     $('#availableTable').hide()
     $('#lentTable').hide()
     $('#pendingTable').hide()
     $('#unavailableTable').hide()
 
-    $.ajax({
-        method: "GET",
-        cache: 'false',
-        url: "https://random-data-api.com/api/device/random_device?size=100",
-        success: function(response) {
-            response.forEach(device => {
-                
-                $('.inventory-table-row tbody').append(
-                    `
-                    <tr>
-                        <td>Phone</td>
-                        <td>${device.manufacturer}</td>
-                        <td>${device.model}</td>
-                        <td>${device.serial_number}</td>
-                        <td>${device.build_number + device.id}</td>
-                        <td>${device.id % 3 == 0 ? 'Available' : 'Lent'}</td>
-                        <td>${new Date().toLocaleDateString('en-US')}</td>
-                        <td class="text-center">
-                            <div class="btn-group" role="group">
-                                ${device.id % 3 == 0 ? '<button type="button" data-tippy-content="Lend Item" class="btn btn-sm btn-outline-secondary border"><i class="fa-solid fa-arrow-right-from-arc fa-fw"></i></button><!-- <small> Lend</small> -->' : '<button type="button" data-tippy-content="Return Item" class="btn btn-sm btn-outline-secondary border"><i class="fa-solid fa-arrow-right-to-arc fa-rotate-180 fa-fw"></i></button>'}
-                                <button type="button" data-tippy-content="More Details" class="btn btn-sm btn-outline-secondary border"><i class="fa-solid fa-info fa-fw"></i></button>
-                            </div>                            
-                        </td>
-                    </tr>
-                    `
-                );
-                
-            });
-
-
-            $('.inventory-table-row table').DataTable();
-
-            tippy('[data-tippy-content]',
-            {
-                placement: 'bottom',
-                animation: 'shift-away',
-            });
-
-            console.log( response ); 
-        }
-    });
+    
     
     function randomFunc() {
         for (let i = 0; i < 2; i++) {
             const random = names[Math.floor(Math.random() * names.length)];
             return random
-        }
-    }
-    function randomStatus() {
-        for (let i = 0; i < 2; i++) {
-            const ranStatus = names[Math.floor(Math.random() * status.length)];
-            return ranStatus
         }
     }
     const names = ["Anderson", "Ashwoon", "Aikin", "Bateman", "Bongard", "Bowers", "Boyd", "Cannon", "Cast", 
@@ -73,8 +27,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         "Schutz", "Schuster", "Tapia", "Thompson", "Tiernan", "Tisler" ]
     console.log(randomFunc(names));
 
-    const status = ["Lost", "Stolen", "Broken", "Surplus"]
-    console.log(randomStatus(status));
       
     //   console.log(makeid());
 
@@ -84,25 +36,23 @@ document.addEventListener("DOMContentLoaded", function (event) {
         $('#lentTable').hide()
         $('#pendingTable').hide()
         $('#unavailableTable').hide()
-        document.getElementsByName("availablePage").dataTable( {
-            "pageLength": 10
-        } );
+        
         $('.inventory-table-row tbody').empty()
 
         $.ajax({
             method: "GET",
             cache: 'false',
-            url: "https://random-data-api.com/api/device/random_device?size=100",
+            url: "https://random-data-api.com/api/device/random_device?size=45",
             success: function (response) {
                 response.forEach(device => {
 
-                    $('.inventory-table-row tbody').append(
+                    $('#AvailablePage').append(
                         `
                     <tr>
                         <td>Phone</td>
                         <td>${device.manufacturer}</td>
                         <td>${device.model}</td>
-                        <td>Closet</td>
+                        <td>${device.id % 3 == 0 ? 'Closet' : 'Nias Office'}</td>
                         <td>${device.serial_number}</td>
                         <td>${device.build_number + device.id}</td>
                         <td>${new Date().toLocaleDateString('en-US')}</td>
@@ -118,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 });
 
 
-                $('.inventory-table-row table').DataTable();
+                $('#AvailablePage').DataTable();
 
                 tippy('[data-tippy-content]',
                     {
@@ -137,9 +87,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         $('#lentTable').hide();
         $('#pendingTable').show();
         $('#unavailableTable').hide();
-        document.getElementsByName("pendingPage").dataTable( {
-            "pageLength": 10
-        } );
+        
         $('.inventory-table-row tbody').empty();
 
         $.ajax({
@@ -149,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             success: function (response) {
                 response.forEach(device => {
 
-                    $('.inventory-table-row tbody').append(
+                    $('#pendingPage').append(
                         `
                     <tr>
                         <td>Phone</td>
@@ -171,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 });
 
 
-                $('.inventory-table-row table').DataTable();
+                $('#pendingPage').DataTable();
 
                 tippy('[data-tippy-content]',
                     {
@@ -200,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             success: function (response) {
                 response.forEach(device => {
 
-                    $('.inventory-table-row tbody').append(
+                    $('#lentPage').append(
                         `
                     <tr>
                         <td>Phone</td>
@@ -223,7 +171,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 });
 
 
-                $('.inventory-table-row table').DataTable();
+                $('#lentPage').DataTable();
 
                 tippy('[data-tippy-content]',
                     {
@@ -252,7 +200,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             success: function (response) {
                 response.forEach(device => {
 
-                    $('.inventory-table-row tbody').append(
+                    $('#totalPage').append(
                         `
                     <tr>
                         <td>Phone</td>
@@ -275,7 +223,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 });
 
 
-                $('.inventory-table-row table').DataTable();
+                $('#totalPage').DataTable();
 
                 tippy('[data-tippy-content]',
                     {
@@ -313,11 +261,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
                         <td>${device.model}</td>
                         <td>${device.serial_number}</td>
                         <td>${device.build_number + device.id}</td>
-                        <td>${randomStatus()}</td>
+                        <td>${device.id % 3 == 0 ? 'Damaged' : 'Stolen'}</td>
                         <td>${new Date().toLocaleDateString('en-US')}</td>
                         <td class="text-center">
                             <div class="btn-group" role="group">
-                                ${device.id % 3 == 0 ? '<button type="button" data-tippy-content="Lend Item" class="btn btn-sm btn-outline-secondary border"><i class="fa-solid fa-arrow-right-from-arc fa-fw"></i></button><!-- <small> Lend</small> -->' : '<button type="button" data-tippy-content="Return Item" class="btn btn-sm btn-outline-secondary border"><i class="fa-solid fa-arrow-right-to-arc fa-rotate-180 fa-fw"></i></button>'}
+                                <button type="button" data-tippy-content="Remove Item" class="btn btn-sm btn-outline-secondary border"><i class="fa-solid fa-ban"></i></button>
                                 <button type="button" data-tippy-content="More Details" class="btn btn-sm btn-outline-secondary border"><i class="fa-solid fa-info fa-fw"></i></button>
                             </div>                            
                         </td>

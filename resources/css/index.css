@@ -6,11 +6,10 @@
 
 .stats-row{
     display: flex;
+    justify-content: space-around;
     flex-wrap: wrap;
     gap: 1rem;
-    margin: 1rem auto;
-    justify-content: space-around;
-    /* margin-bottom: 1rem; */
+    margin-bottom: 1rem;
 }
 
 .stats-row > div{
@@ -31,4 +30,12 @@
 .inventory-table-row > div{
     flex: 1 1 auto;
 
+}
+
+.sectionName {
+    text-align: center;
+}
+
+#Tile{
+    text-align:center;
 }

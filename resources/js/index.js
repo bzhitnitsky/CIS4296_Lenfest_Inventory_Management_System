@@ -167,7 +167,7 @@ function showTab(id){
         $.ajax({
             method: "GET",
             cache: 'false',
-            url: "https://random-data-api.com/api/device/random_device?size=100",
+            url: "https://random-data-api.com/api/device/random_device?size=78",
             success: function (response) {
                 response.forEach(device => {
 
@@ -569,7 +569,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
                                     </table>
 
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="confirmDelete('Surplus this item?', 'Item has been added to surplus!');">Surplus</button>
+                                    <div class="btn-group" role="group">
+                                        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" onclick="confirmDelete('Surplus this item?', 'Item has been added to surplus!');">Surplus</button>
+                                        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" onclick="confirmDelete('Mark Item as Lost?', 'Item has been marked as lost!');">Lost</button>
+                                        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" onclick="confirmDelete('Mark Item as Stolen?', 'Item has been marked as stolen!');">Stolen</button>
+                                    </div>
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 </div>
                             `;

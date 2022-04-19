@@ -548,22 +548,22 @@ document.addEventListener("DOMContentLoaded", function (event) {
                                                 <td>04/19/2022</th>
                                                 <td>Available</td>
                                                 <td>Closet</td>
-                                                <td class="text-muted">N/A</td>
-                                                <td class="text-muted">None</td>
+                                                <td class="">N/A</td>
+                                                <td class="">None</td>
                                             </tr>
                                             <tr>
                                                 <td>04/18/2022</th>
                                                 <td>Lent</td>
                                                 <td>Room 422</td>
                                                 <td>John Smith</td>
-                                                <td class="text-muted">None</td>
+                                                <td class="">None</td>
                                             </tr>
                                             <tr>
                                                 <td>01/02/2022</th>
                                                 <td>Available</td>
                                                 <td>Closet</td>
-                                                <td class="text-muted">N/A</td>
-                                                <td class="text-muted">None</td>
+                                                <td class="">N/A</td>
+                                                <td class="">None</td>
                                             </tr>
                                         </tbody>
                                     </table>

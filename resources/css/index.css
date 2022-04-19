@@ -17,6 +17,7 @@
     height: 7rem;
     font-size: 1rem;
     flex: none;
+    cursor: pointer;
 }
 
 
@@ -38,4 +39,16 @@
 
 #Tile{
     text-align:center;
+}
+
+body {
+    background-image: url(../images/portalPhoto.jpg); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+main{
+    height: calc(100vh - 5rem) !important;
+    overflow-y: auto;
 }

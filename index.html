@@ -7,19 +7,21 @@
         <title>Lenfest Inventory Management - Login</title>
 
         <!-- Bootstrap -->
-        <!-- <link rel="stylesheet" href="./resources/css/bootstrap/bootstrap.min.css">     -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        
-        <!-- <link rel="stylesheet" href="./resources/css/bootstrap-theme.min.css"> -->
-        <!-- <link rel="stylesheet" href="./resources/css/main.css"> -->
-        <link rel="stylesheet" href="./resources/css/temple.css">
+        <!-- <link rel="stylesheet" href="./resources/css/temple.css"> -->
         <link rel="stylesheet" href="./resources/css/index.css">
 
         <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
         <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
         <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/shift-away.css" />
       
+        <!-- Toastr -->
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
+        <!-- SweetAlert2 -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,41 +43,23 @@
                 <div>
                        <h1 id="Title">Lenfest Inventory Dashboard</h1>
                 </div>
+
                 <a class="" href="login.html">
                     <button class="btn btn-sm btn-outline-secondary ms-auto" type="button">Logout</button>
                 </a>
 
-                <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <ul class="nav nav-pills">
-                        <li class="nav-item">
-                          <a class="nav-link active" aria-current="page" href="#">Inventory</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#">New Ite</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                        </li>
-                    </ul>
-                </div> -->
             </div>
         </nav>
         
 
-        <main class="h-100 w-100 p-5 pt-4">
+        <main class="w-100 p-5 pt-4">
 
             <div class="stats-row">
 
-                <div class="p-4 bg-white rounded">
+                <div id="availableTab" class="p-4 bg-white rounded" onclick="showTab(this.id);">
                     <!-- Available Inventory Begin -->
                     <div class="d-flex text-secondary ">
-                        <i id="availableTab" class="fa-solid fa-shelves fa-fw fa-4x"></i>
+                        <i class="fa-solid fa-shelves fa-fw fa-4x"></i>
                         <div class="ms-auto">
                             <div>
                                 <h1 class="m-0">45</h1>
@@ -87,10 +71,10 @@
                     </div>
                 </div><!-- Available Inventory End -->
 
-                <div class="p-4 bg-white rounded">
+                <div id="pendingTab" class="p-4 bg-white rounded" onclick="showTab(this.id);">
                     <!-- Pending Inventory Begin -->
                     <div class="d-flex text-secondary ">
-                        <i id="pendingTab" class="fa-regular fa-truck-ramp-box fa-fw fa-4x"></i>
+                        <i class="fa-regular fa-truck-ramp-box fa-fw fa-4x"></i>
                         <div class="ms-auto">
                             <div>
                                 <h1 class="m-0">27</h1>
@@ -102,10 +86,10 @@
                     </div>
                 </div><!-- Pending Inventory End -->
 
-                <div class="p-4 bg-white rounded">
+                <div id="lentTab" class="p-4 bg-white rounded" onclick="showTab(this.id);">
                     <!-- Lent Inventory Begin -->
                     <div class="d-flex text-secondary ">
-                        <i id="lentTab" class="fa-regular fa-box-circle-check fa-fw fa-4x"></i>
+                        <i class="fa-regular fa-box-circle-check fa-fw fa-4x"></i>
                         <div class="ms-auto">
                             <div>
                                 <h1 class="m-0">78</h1>
@@ -117,10 +101,10 @@
                     </div>
                 </div><!-- Lent Inventory End -->
 
-                <div class="p-4 bg-white rounded">
+                <div id="totalTab" class="p-4 bg-white rounded" onclick="showTab(this.id);">
                     <!-- Total Inventory Begin -->
                     <div class="d-flex text-secondary ">
-                        <i id="totalTab" class="fa-regular fa-sigma fa-fw fa-4x"></i>
+                        <i class="fa-regular fa-sigma fa-fw fa-4x"></i>
                         <div class="ms-auto">
                             <div>
                                 <h1 class="m-0">150</h1>
@@ -132,10 +116,10 @@
                     </div>
                 </div><!-- Total Inventory End -->
 
-                <div class="p-4 bg-white rounded">
+                <div id="unavailableTab" class="p-4 bg-white rounded" onclick="showTab(this.id);">
                     <!-- Unavailable Begin -->
                     <div class="d-flex text-secondary ">
-                        <i id="unavailableTab" class="fa-regular fa-recycle fa-fw fa-4x"></i>
+                        <i class="fa-regular fa-recycle fa-fw fa-4x"></i>
                         <!-- <i class="fa-regular fa-recycle"></i> -->
                         <div class="ms-auto">
                             <div>
@@ -150,134 +134,21 @@
 
             </div>
 
-            <div id="totalTable" class="inventory-table-row"><!--total inventory-->
-
-                <div class="bg-white p-4 rounded">
-                    <h2 class="sectionName">Total Inventory</h2>
-                    <table class="table table-sm" id="totalPage">
-                        <thead>
-                        <th>Type</th>
-                        <th>Brand</th>
-                        <th>Model</th>
-                        <th>Serial #</th>
-                        <th>FOAPAL #</th>
-                        <th>Status</th>
-                        <th>As Of</th>
-                        <th>Actions</th>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-
-                </div>
-
-            </div>
-
-            <div id="availableTable" class="inventory-table-row"><!--available inventory-->
-
-                <div class="bg-white p-4 rounded">
-                    <h2 class="sectionName">Available</h2>
-                    <table class="table table-sm" id="AvailablePage">
-                        <thead>
-                        <th>Type</th>
-                        <th>Brand</th>
-                        <th>Model</th>
-                        <th>Location</th>
-                        <th>Serial #</th>
-                        <th>FOAPAL #</th>
-                        <th>As Of</th>
-                        <th>Actions</th>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-
-                </div>
-
-            </div>
-
-            <div id="lentTable" class="inventory-table-row"><!--Lent inventory-->
-
-                <div class="bg-white p-4 rounded">
-                    <h2 class="sectionName">Lent Items</h2>
-                    <table class="table table-sm" id="lentPage">
-                        <thead>
-                        <th>Type</th>
-                        <th>Brand</th>
-                        <th>Model</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Location</th>
-                        <th>As Of</th>
-                        <th>Comments</th>
-                        <th>Actions</th>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-
-                </div>
-
-            </div>
-
-            <div id="pendingTable" class="inventory-table-row"><!--pending inventory-->
-
-                <div class="bg-white p-4 rounded">
-                    <h2 class="sectionName">Pending</h2>
-                    <table class="table table-sm" id="pendingPage">
-                        <thead>
-                        <th>Type</th>
-                        <th>Brand</th>
-                        <th>Model</th>
-                        <th>Last Name</th>
-                        <th>FOAPAL #</th>
-                        <th>Status</th>
-                        <th>As Of</th>
-                        <th>Actions</th>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-
-                </div>
-
-            </div>
-
-            <div id="unavailableTable" class="inventory-table-row" ><!--surplus inventory-->
-
-                <div class="bg-white p-4 rounded">
-                    <h2 class="sectionName">Unavailable</h2>
-                    <table class="table table-sm" id="testTable">
-                        <thead>
-                        <th>Type</th>
-                        <th>Brand</th>
-                        <th>Model</th>
-                        <th>Serial #</th>
-                        <th>FOAPAL #</th>
-                        <th>Status</th>
-                        <th>As Of</th>
-                        <th>Actions</th>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-
-                </div>
+            <div class="inventory-table-row"><!--available inventory-->
 
             </div>
 
         </main>
 
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    
+                </div>
+            </div>
+        </div>
 
-
-        <!-- table table-striped table-sm dataTable no-footer -->
-
-        <!-- $(document).ready( function () {
-            $('#myTable').DataTable();
-        } ); -->
-
-
-        
         <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
         
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -285,9 +156,9 @@
         <script src="./resources/js/index.js"></script>
         <script src="./resources/js/Item.js"></script>
 
-
         <!-- DataTables -->
         <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
         <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-    
+
+    </body>
 </html>

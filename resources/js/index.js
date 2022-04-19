@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                         <td>${new Date().toLocaleDateString('en-US')}</td>
                         <td class="text-center">
                             <div class="btn-group" role="group">
-                                ${device.id % 3 == 0 ? '<button type="button" data-tippy-content="Lend Item" class="btn btn-sm btn-outline-secondary border"><i class="fa-solid fa-inbox-out fa-fw"></i></button><!-- <small> Lend</small> -->' : '<button type="button" data-tippy-content="Return Item" class="btn btn-sm btn-outline-secondary border"><i class="fa-solid fa-inbox-in fa-fw"></i></button><!-- <small> Return</small> -->'}
+                                ${device.id % 3 == 0 ? '<button type="button" data-tippy-content="Lend Item" class="btn btn-sm btn-outline-secondary border"><i class="fa-solid fa-arrow-right-from-arc fa-fw"></i></button><!-- <small> Lend</small> -->' : '<button type="button" data-tippy-content="Return Item" class="btn btn-sm btn-outline-secondary border"><i class="fa-solid fa-arrow-right-to-arc fa-rotate-180 fa-fw"></i></button>'}
                                 <button type="button" data-tippy-content="More Details" class="btn btn-sm btn-outline-secondary border"><i class="fa-solid fa-info fa-fw"></i></button>
                             </div>                            
                         </td>

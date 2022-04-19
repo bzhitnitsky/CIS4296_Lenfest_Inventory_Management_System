@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         $.ajax({
             method: "GET",
             cache: 'false',
-            url: "https://random-data-api.com/api/device/random_device?size=100",
+            url: "https://random-data-api.com/api/device/random_device?size=27",
             success: function (response) {
                 response.forEach(device => {
 
@@ -285,18 +285,19 @@ document.addEventListener("DOMContentLoaded", function (event) {
     });
 
     $('#unavailableTab').click(function () {
-        $('#availableTable').hide()
-        $('#totalTable').hide()
-        $('#lentTable').hide()
-        $('#pendingTable').hide()
-        $('#unavailableTable').show()
+        $('#availableTable').hide();
+        $('#totalTable').hide();
+        $('#lentTable').hide();
+        $('#pendingTable').hide();
+        $('#unavailableTable').show();
 
-        $('.inventory-table-row tbody').empty()
+        $('.inventory-table-row tbody').empty();
+
 
         $.ajax({
             method: "GET",
             cache: 'false',
-            url: "https://random-data-api.com/api/device/random_device?size=100",
+            url: "https://random-data-api.com/api/device/random_device?size=10",
             success: function (response) {
                 response.forEach(device => {
 
@@ -336,3 +337,4 @@ document.addEventListener("DOMContentLoaded", function (event) {
         });
     });
 });
+

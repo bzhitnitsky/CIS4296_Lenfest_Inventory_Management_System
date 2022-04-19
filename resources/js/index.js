@@ -19,6 +19,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
                         <td>${device.build_number+device.id}</td>
                         <td>${device.id % 3 == 0 ? 'Available' : 'Lent'}</td>
                         <td>${new Date().toLocaleDateString('en-US')}</td>
+                        <td class="text-center">
+                            <div class="btn-group" role="group">
+                                ${device.id % 3 == 0 ? '<button type="button" data-tippy-content="Lend Item" class="btn btn-sm btn-outline-secondary border"><i class="fa-solid fa-inbox-out fa-fw"></i></button><!-- <small> Lend</small> -->' : '<button type="button" data-tippy-content="Return Item" class="btn btn-sm btn-outline-secondary border"><i class="fa-solid fa-inbox-in fa-fw"></i></button><!-- <small> Return</small> -->'}
+                                <button type="button" data-tippy-content="More Details" class="btn btn-sm btn-outline-secondary border"><i class="fa-solid fa-info fa-fw"></i></button>
+                            </div>                            
+                        </td>
                     </tr>
                     `
                 );
@@ -27,6 +33,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
             $('.inventory-table-row table').DataTable();
+
+            tippy('[data-tippy-content]',
+            {
+                placement: 'bottom',
+                animation: 'shift-away',
+            });
+
 
             console.log( response ); 
         }
@@ -52,6 +65,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         "Schutz", "Schuster", "Tapia", "Thompson", "Tiernan", "Tisler" ]
     console.log(randomFunc(names));
       
-      console.log(makeid());
+    //   console.log(makeid());
 
 });

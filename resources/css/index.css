@@ -52,3 +52,14 @@ main{
     height: calc(100vh - 5rem) !important;
     overflow-y: auto;
 }
+
+footer {
+    background-color: black;
+    padding: 8px;
+    text-align: center;
+    color:white;
+
+    font-family: 'Source Serif Pro', serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+}

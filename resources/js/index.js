@@ -483,13 +483,92 @@ document.addEventListener("DOMContentLoaded", function (event) {
             modalContent =  `
                                 <h5 class="py-3 text-center border-bottom" id="exampleModalLabel">Item Details</h5>
                                 <div class="modal-body">
-                                    <h4>Item Type</h4>
-                                    <p>Item Type Here</p>
-                                    <h4>Item Brand</h4>
-                                    <p>Item Brand Here</p>
-                                    <h4>Item Model</h4>
-                                    <p>Item Model Here</p>
+                                    
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="text-dark mb-0">Phone</h5>
+                                            <p class="text-muted fs-6 mt-0"><small>Item Type</small></p>
+                                        </div>
+                                        <div class="col">
+                                            <h5 class="text-dark mb-0">Apple</h5>
+                                            <p class="text-muted fs-6 mt-0"><small>Brand</small></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="text-dark mb-0">iPhone 13 Pro Max</h5>
+                                            <p class="text-muted fs-6 mt-0"><small>Model</small></p>
+                                        </div>
+                                        <div class="col">
+                                            <h5 class="text-dark mb-0">C02J561EXG51</h5>
+                                            <p class="text-muted fs-6 mt-0"><small>Serial Number</small></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="text-dark mb-0">12345678</h5>
+                                            <p class="text-muted fs-6 mt-0"><small>FOAPAL</small></p>
+                                        </div>
+                                        <div class="col">
+                                            <h5 class="text-dark mb-0">Closet</h5>
+                                            <p class="text-muted fs-6 mt-0"><small>Location</small></p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="text-dark mb-0">Available</h5>
+                                            <p class="text-muted fs-6 mt-0"><small>Status</small></p>
+                                        </div>
+                                        <div class="col">
+                                            <h5 class="text-dark mb-0">04/19/2022</h5>
+                                            <p class="text-muted fs-6 mt-0"><small>As Of</small></p>
+                                        </div>
+                                    </div>
+                                    
+                                    <hr>
+
+                                    <h5 class="text-dark mb-0">History</h5>
+
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">As Of Date</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col">Location</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Notes</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">04/19/2022</th>
+                                                <td>Available</td>
+                                                <td>Closet</td>
+                                                <td class="text-muted">N/A</td>
+                                                <td class="text-muted">None</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">04/18/2022</th>
+                                                <td>Lent</td>
+                                                <td>Room 422</td>
+                                                <td>John Smith</td>
+                                                <td class="text-muted">None</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">01/02/2022</th>
+                                                <td>Available</td>
+                                                <td>Closet</td>
+                                                <td class="text-muted">N/A</td>
+                                                <td class="text-muted">None</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
                                 <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="confirmDelete('Surplus this item?', 'Item has been added to surplus!');">Surplus</button>
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 </div>
                             `;
